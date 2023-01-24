@@ -162,4 +162,37 @@ public class Review {
       return randomNegativeAdj();
     }
   }
+
+
+  public static double totalSentiment(String fileName){
+
+    String comsumerReview = textToString(fileName);
+  
+//total
+  double total = 0.0;
+//loop
+  while (comsumerReview.length() > 0 && comsumerReview.indexOf("")!= -1){
+//find space
+  int space = comsumerReview.indexOf("");
+//get word
+  String word = comsumerReview.substring(0, space);
+//reset comsumerReview
+comsumerReview = comsumerReview.substring(space+1);
+
+//get sentiment of word 
+total += sentimentVal(word);
+
+  }
+  total += sentimentVal(comsumerReview);
+  return total;
+  }
+
+public static int starRating(String fileName){
+  
 }
+
+
+
+}
+
+
