@@ -171,28 +171,50 @@ public class Review {
 //total
   double total = 0.0;
 //loop
-  while (comsumerReview.length() > 0 && comsumerReview.indexOf("")!= -1){
+  while (comsumerReview.length() > 0 && comsumerReview.indexOf(" ")!= -1){
 //find space
-  int space = comsumerReview.indexOf("");
+  int space = comsumerReview.indexOf(" ");
 //get word
   String word = comsumerReview.substring(0, space);
 //reset comsumerReview
 comsumerReview = comsumerReview.substring(space+1);
 
 //get sentiment of word 
-total += sentimentVal(word);
+total += sentimentVal(removePunctuation(word));
 
   }
-  total += sentimentVal(comsumerReview);
+  total += sentimentVal(removePunctuation(comsumerReview));
   return total;
   }
 
-public static int starRating(String fileName){
-  
+ public static int starRating(String fileName){
+
+  double totalSentiment = totalSentiment(fileName);
+if(totalSentiment > 4)
+{
+return 4;
 }
-
-
-
+else if(totalSentiment >= 3)
+{
+return 3;
 }
+else if(totalSentiment >= 2)
+{
+return 2;
+}
+else if(totalSentiment < 1)
+{
+return 1;
+}
+else 
+{
+return 0;
+}
+}
+} 
+
+
+
+
 
 
