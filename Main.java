@@ -9,7 +9,7 @@ public class Main {
         // System.out.println(Review.starRating("goodReview.txt"));
         // System.out.println(Review.starRating("badReview.txt"));
 
-        System.out.println(Review.fakeReview("simpleReview.txt"));
+        System.out.println(Review.fakeReview("simpleReview.txt", false));
 
         
     }
